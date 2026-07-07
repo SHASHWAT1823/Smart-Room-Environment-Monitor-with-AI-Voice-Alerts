@@ -18,3 +18,5 @@ AWS IoT Core (Audio Topic)
 Raspberry Pi
       ->
 Speaker
+
+Project Demonstration Video: https://drive.google.com/file/d/1iY1PJ0xAbK2OLfnKJEqV_XSdgV4gWN5y/view?usp=sharing
