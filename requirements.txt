@@ -1,0 +1,8 @@
+adafruit-circuitpython-dht
+adafruit-circuitpython-ads1x15
+board
+RPi.GPIO
+paho-mqtt
+boto3
+requests
+pyaudio
