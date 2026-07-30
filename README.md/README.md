@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="Images/Banner.png" width="100%">
+</p>
+
 # Smart Room Environment Monitor with AI Voice Alerts
 
 An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
