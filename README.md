@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="Images/Banner.png" width="100%">
-</p>
+![Project Banner](./Images/Banner.png)
 
 # Smart Room Environment Monitor with AI Voice Alerts
 
