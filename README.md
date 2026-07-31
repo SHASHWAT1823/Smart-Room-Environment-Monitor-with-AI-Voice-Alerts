@@ -1,4 +1,10 @@
-![Project Banner](./Images/Banner.png)
+<p align="center">
+  <img src="Images%20%26%20Video/Banner.png" width="100%">
+</p>
+
+# Smart Room Environment Monitor with AI Voice Alerts
+
+An AI powered IoT monitoring system built using Raspberry Pi Zero W...
 
 # Smart Room Environment Monitor with AI Voice Alerts
 
