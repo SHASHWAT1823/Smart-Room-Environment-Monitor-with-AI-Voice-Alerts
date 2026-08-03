@@ -1,0 +1,9 @@
+{
+  "state": {
+    "desired": {
+      "temp_max": 32,
+      "humidity_max": 70,
+      "soil_min": 30
+    }
+  }
+}
