@@ -21,12 +21,6 @@ An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
 
 A **Flask + Chart.js** dashboard is included for real time visualization of room telemetry and device status.
 
-**Location**
-
-```text
-Dashboard/
-```
-
 **Features**
 
 - Real time temperature graph
