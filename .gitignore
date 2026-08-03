@@ -21,3 +21,6 @@ certs/
 .bash*
 .profile
 .lesshst
+
+.aws/
+.DS_Store
