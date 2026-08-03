@@ -5,7 +5,7 @@ An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
 
 ## Features
 
-- Temperature & Humidity Monitoring (DHT22)
+- Temperature & Humidity Monitoring
 - Soil Moisture Monitoring
 - AWS IoT Core (MQTT over TLS)
 - AWS Lambda
@@ -14,7 +14,7 @@ An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
 - Amazon Transcribe
 - AWS SNS Alerts
 - Flask Dashboard
-- AI-powered Voice Alerts
+- AI powered Voice Alerts
 - Voice Query Support
 
 ## Hardware
@@ -36,7 +36,3 @@ An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
 - Amazon S3
 - Amazon SNS
 - AWS IoT Device Shadow
-
-## Author
-
-Shashwat Srivastava
