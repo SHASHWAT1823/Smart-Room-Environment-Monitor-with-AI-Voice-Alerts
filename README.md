@@ -1,10 +1,6 @@
 
 # Smart Room Environment Monitor with AI Voice Alerts
 
-An AI powered IoT monitoring system built using Raspberry Pi Zero W...
-
-# Smart Room Environment Monitor with AI Voice Alerts
-
 An AI powered IoT monitoring system built using Raspberry Pi Zero W and AWS.
 
 ## Features
