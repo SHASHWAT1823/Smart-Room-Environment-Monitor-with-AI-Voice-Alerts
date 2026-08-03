@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="Images%20%26%20Video/Banner.png" width="100%">
-</p>
 
 # Smart Room Environment Monitor with AI Voice Alerts
 
