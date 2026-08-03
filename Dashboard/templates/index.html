@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="30">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Room Environment Monitor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Smart Room Environment Monitor</h1>
+
+    <p class="subtitle">
+        Live Environmental Monitoring Dashboard that uses Raspberry Pi Zero W, DHT22, Moisture Sensor, LM393 Module, ADS1115 16 Bit ADC and a pair of speakers.
+    </p>
+
+    <div class="cards">
+
+        <div class="card temp">
+            <h2>Temperature</h2>
+            <div class="value">
+                {{ data.temperature }} °C
+            </div>
+        </div>
+
+        <div class="card humidity">
+            <h2>Humidity</h2>
+            <div class="value">
+                {{ data.humidity }} %
+            </div>
+        </div>
+
+        <div class="card soil">
+            <h2>Soil Moisture</h2>
+            <div class="value">
+                {{ data.soil }} %
+            </div>
+        </div>
+
+        <div class="card status">
+            <h2>Device Status</h2>
+            <div class="online">
+                ONLINE
+            </div>
+        </div>
+
+    </div>
+
+    <div class="timestamp">
+        <strong>Last Updated</strong><br>
+        {{ data.timestamp }}
+    </div>
+
+    <hr style="margin:40px 0;">
+    <h2 style="text-align:center;">Sensor History</h2>
+
+    <div style="height:300px;">
+        <canvas id="tempChart"></canvas>
+    </div>
+    <br>
+
+    <div style="height:300px;">
+        <canvas id="humidityChart"></canvas>
+    </div>
+    <br>
+
+    <div style="height:300px;">
+        <canvas id="soilChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    fetch("/history")
+    .then(response => response.json())
+    .then(data => {
+        const labels = data.map(x =>
+    new Date(parseInt(x.timestamp) * 1000).toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+    })
+);
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    onClick: null,
+                    labels: {
+                        color: "#ffffff",
+                        font: { size: 14, weight: "bold" }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: "rgba(255,255,255,0.15)" },
+                    ticks: {
+                        color: "#ffffff",
+                        font: { size: 13, weight: "bold" }
+                    }
+                },
+                y: {
+                    grid: { color: "rgba(255,255,255,0.15)" },
+                    ticks: {
+                        color: "#ffffff",
+                        font: { size: 13, weight: "bold" }
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById("tempChart"), {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Temperature (°C)",
+                    data: data.map(x => x.temperature),
+                    borderColor: "#36a2eb",
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: chartOptions
+        });
+
+        new Chart(document.getElementById("humidityChart"), {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Humidity (%)",
+                    data: data.map(x => x.humidity),
+                    borderColor: "#ff6384",
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: chartOptions
+        });
+
+        new Chart(document.getElementById("soilChart"), {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Soil Moisture (%)",
+                    data: data.map(x => x.soil),
+                    borderColor: "#4bc0c0",
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: chartOptions
+        });
+    });
+</script>
+</body>
+</html>
